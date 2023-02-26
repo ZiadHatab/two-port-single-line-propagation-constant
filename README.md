@@ -18,7 +18,7 @@ Although the network's S-parameters are not known, it should fulfill some basic 
 
 Regarding the first condition. Ideally, we would like $|S_{11}S_{22}| = |S_{21}S_{12}|$, but this may not be possible without violating points 2 and 3. So at best try to reduce the error: $|S_{11}S_{22}| - |S_{21}S_{12}|$.
 
-Given we have a proper sliding network, we collect measurements from an uncalibrated VNA for different offsets of the network. We need at least 3 offsets to have a valid set of measurements. The more offsets, the wider the bandwidth you can cover. You can use ['test_length.py'][test_lengthpy] to test your chosen offsets if they support your frequency range.
+Given we have a proper sliding network, we collect measurements from an uncalibrated VNA for different offsets of the network. We need at least 3 offsets to have a valid set of measurements. The more offsets, the wider the bandwidth you can cover. You can use [`test_length.py`][test_lengthpy] to test your chosen offsets if they support your frequency range.
 
 One last thing to note is the convention for the direction of movement of the network. In my code, I used the convention that moving to the right has a positive offset, while moving to the left has a negative offset. In my example measurement, I basically set the reference (zero offset) to the far left of the transmission line and moved forward to the right. Therefore, all offsets are positive.
 
@@ -63,7 +63,8 @@ ereff_est = 1 - 0.000001j  # initial estimate of the effective dielectric consta
 # define the method and run.
 cal = mN(lines=lines, line_lengths=lengths, ereff_est=ereff_est, kappa_est=kappa_est)
 cal.run_mN()
-# I use the variable name 'cal', because it uses same notation as my multiline TRL class, but it is not a calibration procedure.
+# I use the variable name 'cal' because it uses the same notation as my multiline TRL class, 
+# but it is not a calibration procedure!
 
 gamma = cal.gamma # measured propagation constant
 ereff = cal.ereff # measured effective dielectric constant
@@ -74,7 +75,7 @@ ereff = cal.ereff # measured effective dielectric constant
 This example showcase the usage of the tuner 8045P from Maury Microwave as a fix transmission line which has a sliding tuning element. We use the sliding tuner as the offset network and shift it in different locations and collect measurements.
 
 !['Depiction of the tuner 8045P as a fixed transmission line and the sliding element as the unknown network.'](images/tuner_8045P_with_cross_section.png)
-*Depiction of the tuner 8045P as a fixed transmission line and the sliding element as the unknown network.*
+*Depiction of the tuner 8045P as a fixed transmission line and the sliding element as the movable network.*
 
 In this example, I did the measurements with three different VNAs to showcase the repeatably of the method. Below is the plot of the relative effective dielectric constant and loss per unit length.
 
@@ -87,7 +88,7 @@ If you found yourself using the method presented here, please consider citing [1
 
 ## References
 
-* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: [https://arxiv.org/abs/2301.09126](https://arxiv.org/abs/2301.09126)
+* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/2301.09126>
 
 * [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 28, 2023. doi: [10.3217/gvzyw-1ea97](http://dx.doi.org/10.3217/gvzyw-1ea97)
 
