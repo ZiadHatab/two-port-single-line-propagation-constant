@@ -2,7 +2,11 @@
 @author: Ziad (zi.hatab@gmail.com)
 
 Implementation of the multinetwork method to compute propagation constant 
-from measurements of offsetted networks.
+from measurements of offsetted networks. Based on the paper:
+
+Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, 
+"Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 
+2023, e-print: <https://arxiv.org/abs/xxx>
 """
 
 # python -m pip install numpy -U
@@ -191,7 +195,6 @@ class mN:
             list of 1-port networks. Holds 2 elements:
                 1. network for forward switch term.
                 2. network for reverse switch term.
-
         """
         self.f  = lines[0].frequency.f
         self.Slines = np.array([x.s for x in lines])
@@ -219,8 +222,8 @@ class mN:
             # correct switch term
             Slines = [correct_switch_term(x,sw[0],sw[1]) for x in Slines] if np.any(sw) else Slines
             
-            gamma, ereff_est, kappa_est, lambd = mN_at_one_freq(Slines, lengths=lengths, 
-                                                            ereff_est=ereff_est, kappa_est=kappa_est, f=f)
+            gamma, ereff_est, kappa_est, lambd = mN_at_one_freq(Slines, lengths=lengths, ereff_est=ereff_est, 
+                                                                kappa_est=kappa_est, f=f)
             kappas.append(kappa_est)
             gammas.append(gamma)
             lambds.append(lambd)

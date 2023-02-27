@@ -19,7 +19,7 @@ def compute_lambd(ereff, f, lengths):
 
 if __name__=='__main__':
     c0 = 299792458
-    ereff = 3 - 0.00001j
+    ereff = 1 - 0.00001j
     f = np.linspace(1, 22, 512)*1e9
     gamma = 2*np.pi*f/c0*np.sqrt(-ereff+1j*np.finfo(complex).eps)
     

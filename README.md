@@ -16,7 +16,7 @@ Although the network's S-parameters are not known, it should fulfill some basic 
 3. It should not cause the generation of additional modes on the transmission line or introduce resonance.
 4. If the above points are fulfilled, the network can be asymmetric and/or non-reciprocal.
 
-Regarding the first condition. Ideally, we would like $|S_{11}S_{22}| = |S_{21}S_{12}|$, but this may not be possible without violating points 2 and 3. So at best try to reduce the error: $|S_{11}S_{22}| - |S_{21}S_{12}|$.
+Regarding the first condition. At best, we want the S-parameters of the network to satisfy the condition $|S_{11}S_{22}|/|S_{21}S_{12}|=1$, but this may not be possible without violating points 2 and 3. In general, as long as $S_{ij}>0$, the math should work fine, but the uncertainty can be improved by minimizing the error: $(|S_{11}S_{22}|/|S_{21}S_{12}|-1)$.
 
 Given we have a proper sliding network, we collect measurements from an uncalibrated VNA for different offsets of the network. We need at least 3 offsets to have a valid set of measurements. The more offsets, the wider the bandwidth you can cover. You can use [`test_length.py`][test_lengthpy] to test your chosen offsets if they support your frequency range.
 
@@ -48,11 +48,11 @@ import skrf as rf
 from multinetwork import mN
 
 # Measured offset networks
-L1    = rf.Network('measured_line_1.s2p')
-L2    = rf.Network('measured_line_2.s2p')
-L3    = rf.Network('measured_line_3.s2p')
-L4    = rf.Network('measured_line_4.s2p')
-L5    = rf.Network('measured_line_5.s2p')
+L1 = rf.Network('measured_line_1.s2p')
+L2 = rf.Network('measured_line_2.s2p')
+L3 = rf.Network('measured_line_3.s2p')
+L4 = rf.Network('measured_line_4.s2p')
+L5 = rf.Network('measured_line_5.s2p')
 
 lines = [L1, L2, L3, L4, L5]
 line_lengths = [0, 1e-3, 3e-3, 5e-3, 7e-3]  # in meters
@@ -72,29 +72,29 @@ ereff = cal.ereff # measured effective dielectric constant
 
 ## Measurement example
 
-This example showcase the usage of the tuner 8045P from Maury Microwave as a fix transmission line which has a sliding tuning element. We use the sliding tuner as the offset network and shift it in different locations and collect measurements.
+This example shows the use of the 8045P tuner from Maury Microwave as a fixed transmission line with a sliding tuner on top. We use the sliding tuner as an offset network and move it to different locations and collect measurements.
 
-!['Depiction of the tuner 8045P as a fixed transmission line and the sliding element as the unknown network.'](images/tuner_8045P_with_cross_section.png)
-*Depiction of the tuner 8045P as a fixed transmission line and the sliding element as the movable network.*
+!['Depiction of the 8045P tuner.'](images/tuner_8045P_with_cross_section.png)
+*Depiction of the 8045P tuner.*
 
-In this example, I did the measurements with three different VNAs to showcase the repeatably of the method. Below is the plot of the relative effective dielectric constant and loss per unit length.
+In this example, I performed the measurements with three different VNAs to show the reproducibility of the method. Below is the plot of relative effective permittivity and loss per unit length.
 
 !['Relative effective permittivity and loss per unit length of the slab coaxial airline.'](images/measurements_ereff_loss.png)
 *Relative effective permittivity and loss per unit length of the slab coaxial airline.*
 
 ## Crediting
 
-If you found yourself using the method presented here, please consider citing [1]. If you want to use the measurements used here, please cite [2].
+If you found yourself using the method presented here, please consider citing [1]. If you want to use the measurement data, please cite [2].
 
 ## References
 
-* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/2301.09126>
+* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/xxx>
 
-* [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 28, 2023. doi: [10.3217/gvzyw-1ea97](http://dx.doi.org/10.3217/gvzyw-1ea97)
+* [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 27, 2023. doi: [xxxx](http://dx.doi.org/xxxx)
 
 ## About the license
 
-The code in this repository is licensed under the BSD-3-Clause license. Feel free to do whatever you want with the code under limitations of [BSD-3-Clause license](https://github.com/ZiadHatab/multiline-trl-calibration/blob/main/LICENSE).
+The code in this repository is licensed under the BSD-3-Clause license. Feel free to do whatever you want with the code under limitations of [BSD-3-Clause license](https://github.com/ZiadHatab/two-port-single-line-propagation-constant/blob/main/LICENSE).
 
 
 [test_lengthpy]: https://github.com/ZiadHatab/two-port-single-line-propagation-constant/blob/main/test_length.py
