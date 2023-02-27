@@ -88,9 +88,9 @@ If you found yourself using the method presented here, please consider citing [1
 
 ## References
 
-* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/xxx>
+* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/xxx> (will update very soon)
 
-* [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 27, 2023. doi: [xxxx](http://dx.doi.org/xxxx)
+* [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 27, 2023. doi: [xxxx](http://dx.doi.org/xxxx) (will update very soon)
 
 ## About the license
 
