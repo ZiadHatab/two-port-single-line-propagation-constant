@@ -6,7 +6,7 @@ from measurements of offsetted networks. Based on the paper:
 
 Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, 
 "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 
-2023, e-print: <https://arxiv.org/abs/xxx>
+2023, e-print: <https://arxiv.org/abs/2302.13859>.
 """
 
 # python -m pip install numpy -U

@@ -12,9 +12,9 @@ So, the general idea is that we have a transmission line of some length. In addi
 Although the network's S-parameters are not known, it should fulfill some basic criteria in the frequency range we are interested in:
 
 1. It must exhibit both reflection and transmission. That is, $S_{ij}>0$ at all frequency points considered.
-2. Its S-parameter shouldn't change when the it is moved.
+2. Its S-parameter shouldn't change when it is moved.
 3. It should not cause the generation of additional modes on the transmission line or introduce resonance.
-4. If the above points are fulfilled, the network can be asymmetric and/or non-reciprocal.
+4. If above points are fulfilled, the network may be asymmetric and/or non-reciprocal (no structural requirements).
 
 Regarding the first condition. At best, we want the S-parameters of the network to satisfy the condition $|S_{11}S_{22}|/|S_{21}S_{12}|=1$, but this may not be possible without violating points 2 and 3. In general, as long as $S_{ij}>0$, the math should work fine, but the uncertainty can be improved by minimizing the error: $(|S_{11}S_{22}|/|S_{21}S_{12}|-1)$.
 
@@ -88,9 +88,9 @@ If you found yourself using the method presented here, please consider citing [1
 
 ## References
 
-* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/xxx> (will update very soon)
+* [1] Z. Hatab, A. Abdi, G. Steinbauer, M. E. Gadringer, and W. Bösch, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA," 2023, e-print: <https://arxiv.org/abs/2302.13859>.
 
-* [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 27, 2023. doi: [xxxx](http://dx.doi.org/xxxx) (will update very soon)
+* [2] Z. Hatab, "Propagation Constant Measurement Based on a Single Transmission Line Standard Using a Two-port VNA: Dataset and Code". Graz University of Technology, Feb. 28, 2023. doi: [10.3217/6bd26-5cp67](http://dx.doi.org/10.3217/6bd26-5cp67)
 
 ## About the license
 
